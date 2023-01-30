@@ -1,12 +1,18 @@
-import express, { Request, Response, NextFunction, json } from 'express';
+import express from 'express';
+import statusRoute from './routes/status.route';
+import usersRoute from './routes/users.route';
 
-const app = express(); // A aplicação está instanciada
+// A aplicação está instânciada
+const app = express();
 
-/*Configuração da aplicação(app). Se na aplicação chegar um get/status ele vai me retornar
-status(200) e um json. */
-app.get('/status', (req, res, next) => {
-    res.status(200).send({ foo: 'Nice bro'});
-});
+// Configuração da aplicação
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Configuração de rota
+app.use(statusRoute);
+app.use(usersRoute);
+
 
 //Todo o HTTP que chegar na porta 3000 vai ser resolvida pela nossa aplicação.
 app.listen(3000, () => {
