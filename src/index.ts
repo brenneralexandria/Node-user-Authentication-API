@@ -14,7 +14,7 @@ app.use(statusRoute);
 app.use(usersRoute);
 
 
-//Todo o HTTP que chegar na porta 3000 vai ser resolvida pela nossa aplicação.
+// Todo o HTTP que chegar na porta 3000 vai ser resolvida pela nossa aplicação.
 app.listen(3000, () => {
     console.log('Aplicação rodando 100%');
 });
